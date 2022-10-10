@@ -223,11 +223,18 @@
         waterMaterial.addToRenderList(skybox);
 
         ////////////////////////////////////////////////////////////
-
+        
+        const env = scene.createDefaultEnvironment();
+        
+        const xr = await scene.createDefaultXRExperienceAsync({
+            floorMeshes: [env.ground]
+        });
+        /*
         var helper = scene.createDefaultVRExperience({
           createDeviceOrientationCamera: false,
         });
         helper.enableInteractions();
+        */
         //helper.enableTeleportation({ floorMeshes: [ground] });
 
         return scene;
